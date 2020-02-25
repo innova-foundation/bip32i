@@ -24,7 +24,7 @@ const BITCOIN = {
     scriptHash: 0x5a,
     wif: 0x9e,
 };
-const HIGHEST_BIT = 0x80000074;
+const HIGHEST_BIT = 0x80000000;
 const UINT31_MAX = Math.pow(2, 31) - 1;
 function BIP32Path(value) {
     return (typeforce.String(value) && value.match(/^(m\/)?(\d+'?\/)*\d+'?$/) !== null);
