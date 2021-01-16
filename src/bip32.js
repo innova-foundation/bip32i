@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto = require("./crypto");
-const bs58dcheck = require('bs58dcheck');
+const bs58icheck = require('bs58icheck');
 const ecc = require('tiny-secp256k1');
 const typeforce = require('typeforce');
-const wif = require('wifd');
+const wif = require('wifi');
 const UINT256_TYPE = typeforce.BufferN(32);
 const NETWORK_TYPE = typeforce.compile({
     wif: typeforce.UInt8,
@@ -14,15 +14,15 @@ const NETWORK_TYPE = typeforce.compile({
     },
 });
 const BITCOIN = {
-    messagePrefix: '\x19Denarius Signed Message:\n',
-    bech32: 'd',
+    messagePrefix: '\x19Innova Signed Message:\n',
+    bech32: 'i',
     bip32: {
         public: 0x0488b21e,
         private: 0x0488ade4,
     },
-    pubKeyHash: 0x1e,
+    pubKeyHash: 0x66,
     scriptHash: 0x5a,
-    wif: 0x9e,
+    wif: 0x89,
 };
 const HIGHEST_BIT = 0x80000000;
 const UINT31_MAX = Math.pow(2, 31) - 1;
@@ -103,7 +103,7 @@ class BIP32 {
             // X9.62 encoding for public keys
             this.publicKey.copy(buffer, 45);
         }
-        return bs58dcheck.encode(buffer);
+        return bs58icheck.encode(buffer);
     }
     toWIF() {
         if (!this.privateKey)
@@ -211,7 +211,7 @@ class BIP32 {
     }
 }
 function fromBase58(inString, network) {
-    const buffer = bs58dcheck.decode(inString);
+    const buffer = bs58icheck.decode(inString);
     if (buffer.length !== 78)
         throw new TypeError('Invalid buffer length');
     network = network || BITCOIN;

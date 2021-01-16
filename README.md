@@ -13,8 +13,8 @@ A [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) compat
 TypeScript
 
 ``` typescript
-import * as bip32 from 'bip32d';
-import { BIP32Interface } from 'bip32d';
+import * as bip32 from 'bip32i';
+import { BIP32Interface } from 'bip32i';
 let node: BIP32Interface = bip32.fromBase58('xprv9s21ZrQH143K3XpLJrX92hM28H2o1CgVi6HXCWGBXtMkHxSkpxiFcnmzjy5qNyi3QUfSVXXapRT8St3wyLbWux9JysZZgvmvQZ75FUqrakP');
 
 let child: BIP32Interface = node.derivePath('m/0/0');
@@ -24,7 +24,7 @@ let child: BIP32Interface = node.derivePath('m/0/0');
 NodeJS
 
 ``` javascript
-let bip32 = require('bip32d')
+let bip32 = require('bip32i')
 let node = bip32.fromBase58('xprv9s21ZrQH143K3XpLJrX92hM28H2o1CgVi6HXCWGBXtMkHxSkpxiFcnmzjy5qNyi3QUfSVXXapRT8St3wyLbWux9JysZZgvmvQZ75FUqrakP')
 
 let child = node.derivePath('m/0/0')
